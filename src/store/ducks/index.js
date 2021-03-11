@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-import { reducers as movies } from './movies'
+import { reducers as chat } from './chat'
 
 export default combineReducers({
-  movies
+  chat
 })

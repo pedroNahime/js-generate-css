@@ -24,3 +24,7 @@ yarn-error.log*
 
 .idea
 api.key.js
+
+public
+
+dist
