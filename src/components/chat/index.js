@@ -7,7 +7,13 @@ import {
   ChatForm,
   ChatWrapper,
   MessageWrapper,
-  MessageButton
+  MessageButton,
+  HeaderWrapper,
+  HeaderTitleWrapper,
+  HeaderTitle,
+  HeaderSubtitle,
+  HeaderButtonClose,
+  WindowContent
 } from './style'
 import PropTypes from 'prop-types'
 import Message from '../message'
@@ -24,25 +30,33 @@ function Chat(props) {
   }
   return (
     <ChatWrapper>
-      <button
-        onClick={() => {
-          handleButtonCloseClick()
-        }}
-      >
-        close
-      </button>
+      <HeaderWrapper>
+        <HeaderTitleWrapper>
+          <HeaderTitle> Chat </HeaderTitle>
+          <HeaderSubtitle> Powered by Company </HeaderSubtitle>
+        </HeaderTitleWrapper>
+        <HeaderButtonClose
+          onClick={() => {
+            handleButtonCloseClick()
+          }}
+        >
+          X
+        </HeaderButtonClose>
+      </HeaderWrapper>
       <Window>
-        {props.messages.map((message, index) => (
-          <Message
-            key={index}
-            message={message.message}
-            sender={message.sender}
-          />
-        ))}
+        <WindowContent>
+          {props.messages.map((message, index) => (
+            <Message
+              key={index}
+              message={message.message}
+              sender={message.sender}
+            />
+          ))}
+        </WindowContent>
       </Window>
       <ChatForm>
         <MessageWrapper value={text} onChange={e => setText(e.target.value)} />
-        <MessageButton onClick={() => handleButtonSend()} />
+        <MessageButton onClick={() => handleButtonSend()}>Send</MessageButton>
       </ChatForm>
     </ChatWrapper>
   )

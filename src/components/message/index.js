@@ -6,7 +6,7 @@ function Message(props) {
   return (
     <Container>
       <MessageBox sender={props.sender}>
-        <Flr>
+        <Flr sender={props.sender}>
           <MessageWrap>
             <MSG>{props.message}</MSG>
           </MessageWrap>
